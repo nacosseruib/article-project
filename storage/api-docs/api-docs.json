@@ -1,0 +1,78 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Article Website",
+        "description": "This is an API for data and serve the data in JSON format",
+        "contact": {
+            "name": "Developer",
+            "email": "samsontopeajax@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/articles": {
+            "get": {
+                "tags": [
+                    "Hello"
+                ],
+                "summary": "Return the list of articles",
+                "parameters": [
+                    {
+                        "$ref": "articles"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of articles",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "description": "List of articles"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ArticleSchema": {
+                "title": "Article Model",
+                "description": "Article model",
+                "properties": {
+                    "id": {
+                        "description": "ID of the article"
+                    },
+                    "title": {
+                        "description": "title of the article"
+                    },
+                    "thumbnail": {
+                        "description": "cover image of the article"
+                    },
+                    "description": {
+                        "description": "details of the article"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "parameters": {
+            "articles": {
+                "name": "limit",
+                "in": "query",
+                "description": "Limit the number of results",
+                "schema": {
+                    "type": "number",
+                    "default": 10
+                }
+            }
+        }
+    }
+}
